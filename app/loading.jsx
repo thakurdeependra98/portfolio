@@ -1,34 +1,28 @@
 "use client";
 import GradientText from "../components/ui/GradientText";
 import CountUp from "../components/ui/CountUp";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback } from "react";
+import DecryptedText from "../components/ui/DecryptedText";
 
-export default function LoadingPage({ onFinish, speed = 20 }) {
-  const [count, setCount] = useState(0);
-  const [hide, setHide] = useState(false);
+export default function LoadingPage({ onFinish }) {
+  const [isFinished, setIsFinished] = useState(false);
+  const countUpDuration = 1; // Duration in seconds, should match CountUp component
 
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      if (onFinish) {
-        onFinish();
-      }
-      // setHide(true); // This will be controlled by the parent now
-    }, 3000);
+  const handleLoadingFinish = useCallback(() => {
+    setIsFinished(true);
+    if (onFinish) {
+      onFinish();
+    }
+  }, [onFinish]);
 
-    return () => clearTimeout(timer);
-  }, []);
   return (
     <div
-      aria-hidden={hide}
-      className={`fixed inset-0 z-50 flex items-center justify-center bg-green-600 transition-all duration-700 ease-out ${
-        hide ? "-translate-y-8 opacity-0 pointer-events-none" : "opacity-100"
+      className={`fixed inset-0 z-50 flex items-center justify-center transition-transform ease-in bg-[#000000ef] ${
+        isFinished ? "-translate-y-full" : "translate-y-0"
       }`}
     >
       <div className="flex flex-col items-center gap-4">
-        <div
-          className="animate-spin w-12 h-12 border-4 border-gray-300 border-t-black rounded-full"
-          aria-hidden
-        />
+        <div className="text-xl font-light tracking-widest text-white">Loading...</div>
         <GradientText
           colors={["#40ffaa", "#4079ff", "#40ffaa", "#4079ff", "#40ffaa"]}
           animationSpeed={3}
@@ -40,8 +34,9 @@ export default function LoadingPage({ onFinish, speed = 20 }) {
             to={100}
             separator=","
             direction="up"
-            duration={1}
-            className="count-up-text text-5xl font-bold"
+            duration={countUpDuration}
+            className="count-up-text text-7xl font-bold"
+            onEnd={handleLoadingFinish}
           />
         </GradientText>
       </div>
