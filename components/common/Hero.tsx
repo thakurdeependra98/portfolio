@@ -7,7 +7,7 @@ const Hero = () => {
   return (
     <section className="h-screen flex flex-col justify-center items-center text-white text-center px-4">
       <h1 className="text-5xl md:text-7xl font-bold mb-4 mt-32">
-        Hi, I&apos;m{" "}
+        <span className="text-yellow-400">Hi</span>, I&apos;m{" "}
         <GradientText
           colors={["#40ffaa", "#4079ff", "#40ffaa", "#4079ff", "#40ffaa"]}
           animationSpeed={8}
