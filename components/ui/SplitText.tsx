@@ -1,5 +1,5 @@
 "use client";
-import { useRef, useEffect, useState } from 'react';
+import { useRef, useEffect, useState, CSSProperties } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { SplitText as GSAPSplitText } from 'gsap/SplitText';
@@ -20,7 +20,7 @@ const SplitText = ({
   rootMargin = '-100px',
   textAlign = 'center',
   tag = 'p',
-  onLetterAnimationComplete
+  onLetterAnimationComplete = () => {}
 }) => {
   const ref = useRef(null);
   const animationCompletedRef = useRef(false);
@@ -138,8 +138,8 @@ const SplitText = ({
   );
 
   const renderTag = () => {
-    const style = {
-      textAlign,
+    const style: CSSProperties = {
+      textAlign: textAlign as CSSProperties['textAlign'],
       wordWrap: 'break-word',
       willChange: 'transform, opacity'
     };

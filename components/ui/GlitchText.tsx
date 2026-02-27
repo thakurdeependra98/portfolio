@@ -1,5 +1,7 @@
+import { CSSProperties } from 'react';
+
 const GlitchText = ({ children, speed = 0.5, enableShadows = true, enableOnHover = false, className = '' }) => {
-  const inlineStyles = {
+  const inlineStyles: CSSProperties & Record<string, string> = {
     '--after-duration': `${speed * 3}s`,
     '--before-duration': `${speed * 2}s`,
     '--after-shadow': enableShadows ? '-5px 0 red' : 'none',
