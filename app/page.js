@@ -5,12 +5,14 @@ import Home from "./home/page";
 import Hero from "../components/common/Hero";
 import SplashCursor from "../components/ui/SplashCursor";
 import About from "./about/page";
+import Project from "./project/page";
+import Experience from "./experience/page";
 
 const Page = () => {
   const [loadingDone, setLoadingDone] = useState(false);
 
   return (
-    <div className="relative w-full min-h-screen bg-black">
+    <div className="relative w-full min-h-screen bg-[#000000ef]">
       {/* Gradient Background */}
       <div className="fixed inset-0 -z-20">
         <div className="absolute top-0 left-0 w-96 h-96 bg-cyan-500/20 rounded-full mix-blend-screen filter blur-3xl"></div>
@@ -30,12 +32,14 @@ const Page = () => {
         )}
 
         {loadingDone && (
-        <div>
-          <Hero />
-          {/* <Home /> */}
-          <SplashCursor />
-          <About/>
-        </div>
+          <div>
+            <Hero />
+            {/* <Home /> */}
+            <SplashCursor />
+            <About />
+            <Project />
+            <Experience />
+          </div>
         )}
       </div>
     </div>
