@@ -1,4 +1,5 @@
 'use client';
+// @ts-ignore
 import { useEffect, useRef } from 'react';
 
 function SplashCursor({
