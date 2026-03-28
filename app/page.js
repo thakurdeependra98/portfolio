@@ -2,7 +2,6 @@
 import { useState } from "react";
 import LoadingPage from "./loading";
 import Home from "./home/page";
-import Hero from "../components/common/Hero";
 import SplashCursor from "../components/ui/SplashCursor";
 import About from "./about/page";
 import Project from "./project/page";
@@ -33,8 +32,7 @@ const Page = () => {
 
         {loadingDone && (
           <div>
-            <Hero />
-            {/* <Home /> */}
+            <Home />
             <SplashCursor />
             <About />
             <Project />
