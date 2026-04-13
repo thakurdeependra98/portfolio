@@ -80,7 +80,7 @@ const Experience = () => {
                       <h3 className="text-md font-medium text-gray-300 mb-1">
                         {experience.company}
                       </h3>
-                      <h2 className="text-xl md:text-xl font-semibold mb-2">
+                      <h2 className="text-xl md:text-xl text-primary font-semibold mb-2">
                         {experience.position}
                       </h2>
                       

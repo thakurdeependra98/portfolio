@@ -1,8 +1,8 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #000000ef;
+  --foreground: #ededed;
 }
 
 @theme inline {
@@ -12,10 +12,30 @@
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@layer utilities {
+  .text-primary {
+    color: #ffff00;
+    transition: opacity 0.3s ease;
+  }
+  
+  .text-secondary {
+    color: currentColor;
+    opacity: 0.75;
+    transition: opacity 0.3s ease;
+  }
+
+  .text-tertiary {
+    color: currentColor;
+    opacity: 0.5;   /* Lighter muted gray */
+    transition: opacity 0.3s ease;
+  }
+  
+  .text-accent {
+    color: var(--color-cyan-500); /* Use specific tailwind colors for accents */
+  }
+
+  :is(.theme-light) .theme-light-text {
+    color: #1f2045 !important;
   }
 }
 

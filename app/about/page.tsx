@@ -119,14 +119,15 @@ const About = () => {
     },
   ];
   return (
-    <section id="about" className="py-28 px-4 text-white min-h-screen">
+    <section id="about" className="py-28 px-4 min-h-screen transition-colors duration-100">
       <div className="mx-auto max-w-4xl">
         <Slide direction="down" triggerOnce>
-          <h2 className="text-4xl font-bold text-center mb-12">About Me</h2>
+          {/* Default to text-white, and switch to text-primary based on container context */}
+          <h1 className="text-4xl md:text-5xl font-bold text-center mb-12  ">About Me</h1>
         </Slide>
 
         <Fade duration={2000} triggerOnce>
-          <div className="text-center space-y-8 text-gray-300 leading-relaxed">
+          <div className="text-center space-y-8 text-secondary leading-relaxed text-lg md:text-lg">
             <p>
               My name is Deependra Singh, and I am a Full-Stack Developer with 2+ years of real-world experience
               designing fast, usable, and SEO-friendly web applications. My specialty is crafting smooth-looking
@@ -157,7 +158,7 @@ const About = () => {
         {/* Tech Skills Loop */}
         <Fade delay={500} triggerOnce>
           <div className="mt-24">
-            <h3 className="text-center text-xl font-semibold mb-8 text-gray-300">Skills & Tools</h3>
+            <h3 className="text-center text-primary text-xl font-semibold mb-8 ">Skills & Tools</h3>
             <LogoLoop
               logos={skillLogos}
               speed={100}
@@ -165,8 +166,7 @@ const About = () => {
               gap={40}
               logoHeight={40}
               pauseOnHover={true}
-              fadeOut={true}
-              fadeOutColor="#000000"
+              fadeOut={false}
               scaleOnHover={true}
             />
           </div>

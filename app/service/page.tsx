@@ -8,7 +8,7 @@ const Project = () => {
       icon: "💻",
       title: "Frontend Development",
       description: "Production UIs in React, Next.js, or Vue- third-party and payment integrations included. Built for real traffic and maintained in production.",
-      isPopular: false,
+      isPopular: true,
       technologies: [
         "React", "Next.js", "TypeScript", "HTML", "CSS", "JavaScript", "Tailwind CSS", 
         "shadcn/ui", "REST APIs"
@@ -19,7 +19,7 @@ const Project = () => {
       icon: "🔧",
       title: "Full Stack Development",
       description: "End-to-end apps: MERN, React+Node. Auth, role-based access, and real-time where it matters. Designed to scale without rewrites.",
-      isPopular: true,
+      isPopular: false,
       technologies: [
         "MERN", "Node.js", "Express", "React", "JWT", 
         "OAuth", "Socket.io", "Role-based UI", "REST APIs"
@@ -82,7 +82,7 @@ const Project = () => {
                 </div>
 
                 {/* Content */}
-                <h3 className="text-lg font-semibold mb-4">{service.title}</h3>
+                <h3 className="text-lg text-primary font-semibold mb-4">{service.title}</h3>
                 <p className="text-gray-400 mb-8 leading-relaxed text-sm">
                   {service.description}
                 </p>
