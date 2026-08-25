@@ -4,14 +4,26 @@ import LoadingPage from "./loading";
 import Home from "./home/page";
 import SplashCursor from "../components/ui/SplashCursor";
 import About from "./about/page";
-import Project from "./service/page";
+import Service from "./service/page";
+import Project from "./project/page";
 import Experience from "./experience/page";
 
+const getInitialLoadingDone = () => {
+  if (typeof window === "undefined") {
+    return false;
+  }
+
+  const navigationType = window.performance?.getEntriesByType?.("navigation")?.[0]?.type;
+
+  if (navigationType === "reload") {
+    return false;
+  }
+
+  return Boolean(sessionStorage.getItem("portfolio_loaded"));
+};
+
 const Page = () => {
-  const [loadingDone, setLoadingDone] = useState(() => {
-    if (typeof window === "undefined") return false;
-    return Boolean(sessionStorage.getItem("portfolio_loaded"));
-  });
+  const [loadingDone, setLoadingDone] = useState(getInitialLoadingDone);
   const containerRef = useRef(null);
 
   const handleLoadingFinish = () => {
@@ -44,8 +56,9 @@ const Page = () => {
             <div>
               <About />
             </div>
-            <Project />
+            <Service />
             <Experience />
+            <Project />
           </div>
         )}
       </div>

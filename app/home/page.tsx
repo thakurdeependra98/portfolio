@@ -81,7 +81,7 @@ const Home = () => {
           Deependra Singh
         </GradientText>
       </h1>
-      <div className="text-3xl md:text-4xl font-semibold mb-4">
+      <div className="text-3xl md:text-4xl font-semibold mb-4 text-primary">
         <SplitText
           text="A Creative Software Developer"
           splitType="chars"

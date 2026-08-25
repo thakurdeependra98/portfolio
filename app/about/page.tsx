@@ -158,7 +158,7 @@ const About = () => {
         {/* Tech Skills Loop */}
         <Fade delay={500} triggerOnce>
           <div className="mt-24">
-            <h3 className="text-center text-primary text-xl font-semibold mb-8 ">Skills & Tools</h3>
+            <h3 className="text-center text-lg font-medium mb-8 uppercase tracking-[0.38em]">Skills & Tools</h3>
             <LogoLoop
               logos={skillLogos}
               speed={100}

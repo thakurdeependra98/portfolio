@@ -1,7 +1,7 @@
 import React from "react";
 import { Fade } from "react-awesome-reveal";
 
-const Project = () => {
+const Service = () => {
   const services = [
     {
       id: 1,
@@ -21,7 +21,7 @@ const Project = () => {
       description: "End-to-end apps: MERN, React+Node. Auth, role-based access, and real-time where it matters. Designed to scale without rewrites.",
       isPopular: false,
       technologies: [
-        "MERN", "Node.js", "Express", "React", "JWT", 
+        "MERN", "Node.js", "Express", "React", "JWT", "Passport", 
         "OAuth", "Socket.io", "Role-based UI", "REST APIs"
       ]
     },
@@ -39,8 +39,8 @@ const Project = () => {
   ];
 
   return (
-    <section className="min-h-screen text-white px-4">
-      <div className="max-w-6xl mx-auto">
+    <section className="min-h-screen text-white">
+      <div className=" max-w-7xl mx-auto py-10">
         {/* Header */}
         <Fade delay={200} triggerOnce>
           <div className="text-center mb-10">
@@ -120,4 +120,4 @@ const Project = () => {
   );
 };
 
-export default Project;
+export default Service;
