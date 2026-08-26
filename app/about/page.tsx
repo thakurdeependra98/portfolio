@@ -119,7 +119,7 @@ const About = () => {
     },
   ];
   return (
-    <section id="about" className="py-28 px-4 min-h-screen transition-colors duration-100">
+    <section id="about" className="pt-28 px-4 min-h-screen transition-colors duration-100 pb-10">
       <div className="mx-auto max-w-4xl">
         <Slide direction="down" triggerOnce>
           {/* Default to text-white, and switch to text-primary based on container context */}

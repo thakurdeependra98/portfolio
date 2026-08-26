@@ -1,5 +1,5 @@
 import React from "react";
-import { Fade } from "react-awesome-reveal";
+import { Fade, Slide } from "react-awesome-reveal";
 
 const Experience = () => {
   const experiences = [
@@ -39,14 +39,16 @@ const Experience = () => {
   ];
 
   return (
-    <section className="min-h-screen text-white px-4 py-20">
+    <section className="min-h-screen text-white px-4 pt-28 pb-10">
       <div className="max-w-4xl mx-auto">
         {/* Header */}
         <Fade delay={200} triggerOnce>
           <div className="text-center mb-16">
-            <h1 className="text-4xl md:text-5xl font-bold mb-6">
+            <Slide direction="down" triggerOnce>
+              <h1 className="text-4xl md:text-5xl font-bold mb-6">
               My Experience
             </h1>
+            </Slide>
             <p className="text-gray-400 text-lg max-w-2xl mx-auto">
               Professional experience that I have accumulated over several years.
             </p>

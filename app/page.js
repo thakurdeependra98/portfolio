@@ -7,6 +7,7 @@ import About from "./about/page";
 import Service from "./service/page";
 import Project from "./project/page";
 import Experience from "./experience/page";
+import ContactPage from "./contact/page";
 
 const getInitialLoadingDone = () => {
   if (typeof window === "undefined") {
@@ -59,6 +60,7 @@ const Page = () => {
             <Service />
             <Experience />
             <Project />
+            <ContactPage />
           </div>
         )}
       </div>

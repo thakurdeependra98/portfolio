@@ -5,6 +5,7 @@ import { useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
+import { Slide } from "react-awesome-reveal";
 
 gsap.registerPlugin(ScrollTrigger, useGSAP);
 
@@ -84,7 +85,8 @@ const ProjectPreview = ({ project }) => {
               Find Your Calm. Book Wellness Experiences.
             </h3>
             <p className="text-center text-[0.68rem] leading-5 text-slate-500 sm:text-sm">
-              Discover premium wellness experiences with instant confirmation and real-time availability.
+              Discover premium wellness experiences with instant confirmation
+              and real-time availability.
             </p>
             <div className="flex items-center gap-2 rounded-full border border-emerald-200 bg-white px-4 py-2 text-[0.62rem] font-medium text-emerald-700 shadow-sm">
               Browse Experiences
@@ -111,7 +113,8 @@ const ProjectPreview = ({ project }) => {
           <div className="mx-auto mb-3 h-10 w-10 rounded-2xl bg-indigo-600/10" />
           <p className="text-sm font-semibold text-indigo-600">Mini Otio</p>
           <p className="mt-2 text-[0.72rem] leading-5 text-slate-500">
-            A research assistant for fast answers, structured summaries, and live web context.
+            A research assistant for fast answers, structured summaries, and
+            live web context.
           </p>
         </div>
       </div>
@@ -148,7 +151,7 @@ const Project = () => {
       timeline.fromTo(
         headerRef.current,
         { opacity: 0, y: 24 },
-        { opacity: 1, y: 0, duration: 0.8 }
+        { opacity: 1, y: 0, duration: 0.8 },
       );
 
       timeline.to(
@@ -160,7 +163,7 @@ const Project = () => {
           duration: 0.9,
           stagger: 0.16,
         },
-        "<0.05"
+        "<0.05",
       );
 
       cards.forEach((card, index) => {
@@ -182,7 +185,12 @@ const Project = () => {
 
         const hoverLeave = () => {
           gsap.to(card, { y: 0, duration: 0.35, ease: "power2.out" });
-          gsap.to(chips, { y: 0, duration: 0.18, stagger: 0.025, ease: "power2.out" });
+          gsap.to(chips, {
+            y: 0,
+            duration: 0.18,
+            stagger: 0.025,
+            ease: "power2.out",
+          });
           if (button) {
             gsap.to(button, { x: 0, duration: 0.25, ease: "power2.out" });
           }
@@ -206,22 +214,26 @@ const Project = () => {
         });
       };
     },
-    { scope: sectionRef }
+    { scope: sectionRef },
   );
 
   return (
     <section
       id="projects"
       ref={sectionRef}
-      className="relative min-h-screen overflow-hidden px-4 py-16 text-[#f7d9cf] sm:px-6 lg:px-10 max-w-7xl mx-auto"
+      className="relative min-h-screen overflow-hidden px-4 pt-28 text-[#f7d9cf] sm:px-6 lg:px-10 max-w-7xl mx-auto"
     >
       <div className="text-center">
         <div ref={headerRef} className="mb-14 opacity-0">
-          <h1 className="text-balance text-4xl font-semibold tracking-tight text-[#fff3ee] sm:text-5xl lg:text-6xl">
-            Projects Overview
-          </h1>
+          <Slide direction="down" triggerOnce>
+            <h1 className="text-balance text-4xl font-semibold tracking-tight text-[#fff3ee] sm:text-5xl lg:text-6xl">
+              Projects Overview
+            </h1>
+          </Slide>
           <p className="mt-5 text-sm leading-7 text-[#f7d9cf]/80 sm:text-base">
-            A project overview styled like your reference: strong index and title on the left, stack in the middle, and description with the call to action on the right.
+            A project overview styled like your reference: strong index and
+            title on the left, stack in the middle, and description with the
+            call to action on the right.
           </p>
         </div>
 
@@ -267,7 +279,6 @@ const Project = () => {
                     </span>
                   ))}
                 </div>
-
               </div>
 
               <div className="flex flex-col gap-4">

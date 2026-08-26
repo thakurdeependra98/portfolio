@@ -1,5 +1,5 @@
 import React from "react";
-import { Fade } from "react-awesome-reveal";
+import { Fade, Slide } from "react-awesome-reveal";
 
 const Service = () => {
   const services = [
@@ -39,14 +39,16 @@ const Service = () => {
   ];
 
   return (
-    <section className="min-h-screen text-white">
+    <section className="min-h-screen text-white pt-24 pb-10">
       <div className=" max-w-7xl mx-auto py-10">
         {/* Header */}
         <Fade delay={200} triggerOnce>
           <div className="text-center mb-10">
-            <h1 className="text-4xl md:text-5xl font-bold mb-6">
-              How I can help
-            </h1>
+            <Slide direction="down" triggerOnce>
+              <h1 className="text-4xl md:text-5xl font-bold mb-6">
+                How I can help
+              </h1>
+            </Slide>
             <p className="text-gray-400 text-lg max-w-2xl mx-auto">
               Production systems I&apos;ve shipped and can run for you.
             </p>
@@ -59,7 +61,7 @@ const Service = () => {
             <p className="text-gray-300 text-base max-w-4xl mx-auto leading-relaxed">
               Best frontend services and full-stack development: Frontend Development, Full Stack, Database & 
               Backend, Performance & Optimization, Architecture, Product UI, and SEO/AEO/GEO. Services 
-              provided by Yash Kapure - hire for US and worldwide.
+              provided by Deependra Singh - hire for US and worldwide.
             </p>
           </div>
         </Fade>
