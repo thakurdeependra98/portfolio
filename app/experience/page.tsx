@@ -17,7 +17,7 @@ const Experience = () => {
     {
       id: 2,
       company: "BestPeers InfoSytem Private Limited, Indore, India",
-      position: "Web Developer",
+      position: "Web Developer (Intern)",
       period: "Jan 2025 - Apr 2025",
       description: "Worked as a Full Stack developer at BestPeers InfoSytem Private Limited, a company based in Indore, India. Created fully functional MERN Stack Web Applications with responsive behavior, smooth touch UI, and API Integration.",
       technologies: [

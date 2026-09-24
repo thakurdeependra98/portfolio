@@ -1,11 +1,11 @@
 "use client";
 
-import Link from "next/link";
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
 import { Slide } from "react-awesome-reveal";
+import DetailsModal from "../../components/common/DetailsModal";
 
 gsap.registerPlugin(ScrollTrigger, useGSAP);
 
@@ -14,67 +14,63 @@ const projects = [
     id: 1,
     index: "01",
     eyebrow: "Featured project",
-    title: "Calm Llama - AI Chatbot",
-    category: "Wellness booking platform",
+    title: "E-commerce Platform",
+    category: "Online shopping platform",
     period: "2026",
     description:
-      "A modern web platform that enables users to discover and book premium wellness experiences such as saunas, yoga, massages, and float tanks. Features include real-time availability, secure payments, and instant booking confirmations. Worked as a Full Stack Freelance developer @ ToraTec AI, Dublin, Ireland.",
+      "A modern e-commerce platform where users can discover products, manage their cart, complete secure payments, and track orders from one streamlined experience. The project includes responsive product browsing, category filtering, authentication, checkout, and order management for a reliable shopping journey.",
     technologies: [
       "TypeScript",
-      "Stripe Payment Gateway",
       "React.js",
       "Next.js",
       "Tailwind CSS",
       "Shadcn UI",
       "Node.js",
       "Express",
-      "UI/UX Developer",
       "Supabase",
-      "AI",
-      "n8n",
-      "Google Maps API",
+      "Stripe Payment Gateway",
+      "PostgreSQL",
     ],
     previewLabel: "Preview",
-    previewHref: "#",
-    theme: "calm",
+    githubUrl: "https://github.com/thakurdeependra98/E-commerce-React-App",
+    liveUrl: "https://e-commerce-react-app-sigma.vercel.app/",
+    theme: "ecommerce",
   },
   {
     id: 2,
     index: "02",
     eyebrow: "Featured project",
-    title: "Mini Otio - AI Research Assistant",
-    category: "AI research assistant",
+    title: "Recipe App",
+    category: "Recipe discovery platform",
     period: "2025",
     description:
-      "A modern AI-powered research assistant that combines real-time web search with intelligent response generation. Users can ask research questions and receive comprehensive, streamed responses with multiple formatting options (step-by-step, bullet points, ELI5). Features include bookmark management, conversation export, and a sleek chat interface with real-time streaming capabilities.",
+      "A friendly recipe app that helps users discover meals, search by ingredients, and find inspiration for every occasion. Features include recipe categories, dietary filters, step-by-step cooking instructions, preparation details, and saved favorites for building a personal kitchen collection.",
     technologies: [
-      "AI Agent",
-      "Next.js 15",
       "TypeScript",
-      "Shadcn UI",
       "React.js",
+      "Next.js",
       "Tailwind CSS",
-      "Zustand",
-      "Zod",
-      "OpenRouter API",
-      "Exa.ai",
-      "AI SDK",
+      "Shadcn UI",
+      "Node.js",
+      "Supabase",
+      "REST API",
     ],
     previewLabel: "Preview",
-    previewHref: "#",
-    theme: "otio",
+    githubUrl: "https://github.com/thakurdeependra98/Recipe-App",
+    liveUrl: "https://recipe-app-bay-one.vercel.app/",
+    theme: "recipe",
   },
 ];
 
 const ProjectPreview = ({ project }) => {
-  if (project.theme === "calm") {
+  if (project.theme === "ecommerce") {
     return (
       <div className="relative h-64 overflow-hidden rounded-t-[1.4rem] bg-[#f7f8f5] sm:h-72">
         <div className="absolute inset-x-0 top-0 h-14 bg-white/90" />
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_10%,rgba(16,185,129,0.12),transparent_26%),radial-gradient(circle_at_80%_20%,rgba(255,214,165,0.34),transparent_22%),linear-gradient(180deg,#ffffff_0%,#f4f7f1_65%,#eef3ea_100%)]" />
         <div className="absolute left-4 top-4 flex items-center gap-2 text-[0.55rem] font-semibold uppercase tracking-[0.32em] text-slate-500">
           <span className="h-2.5 w-2.5 rounded-full bg-emerald-500" />
-          Calm Llama
+          E-commerce
         </div>
         <div className="absolute left-8 top-20 h-24 w-24 rounded-full bg-emerald-400/12 blur-3xl" />
         <div className="absolute right-6 top-10 h-28 w-28 rounded-full bg-amber-200/70 blur-3xl" />
@@ -82,14 +78,13 @@ const ProjectPreview = ({ project }) => {
         <div className="absolute inset-x-0 bottom-8 px-6">
           <div className="mx-auto flex w-full max-w-[18rem] flex-col items-center gap-4 rounded-[1.7rem] border border-white/70 bg-white/70 px-5 py-5 shadow-[0_18px_50px_rgba(15,23,42,0.08)] backdrop-blur-sm">
             <h3 className="text-center text-3xl font-semibold leading-tight tracking-tight text-[#2e6b46] sm:text-4xl">
-              Find Your Calm. Book Wellness Experiences.
+              Shop Better. Live Better.
             </h3>
             <p className="text-center text-[0.68rem] leading-5 text-slate-500 sm:text-sm">
-              Discover premium wellness experiences with instant confirmation
-              and real-time availability.
+              Discover products you love with a simple, secure checkout.
             </p>
             <div className="flex items-center gap-2 rounded-full border border-emerald-200 bg-white px-4 py-2 text-[0.62rem] font-medium text-emerald-700 shadow-sm">
-              Browse Experiences
+              Browse Products
             </div>
           </div>
         </div>
@@ -99,22 +94,21 @@ const ProjectPreview = ({ project }) => {
 
   return (
     <div className="relative h-64 overflow-hidden rounded-t-[1.4rem] bg-[#f5f7fb] sm:h-72">
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_35%,rgba(99,102,241,0.14),transparent_24%),linear-gradient(180deg,#fbfcff_0%,#eff4ff_55%,#eaf0fb_100%)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_35%,rgba(244,114,182,0.16),transparent_24%),linear-gradient(180deg,#fffdf8_0%,#fff4e8_55%,#f7eadb_100%)]" />
       <div className="absolute left-0 top-0 h-full w-26 border-r border-slate-200/70 bg-white/75 backdrop-blur-sm" />
-      <div className="absolute left-4 top-4 h-4 w-24 rounded-full bg-indigo-500/80" />
-      <div className="absolute left-4 top-12 h-8 w-24 rounded-full bg-indigo-500/14" />
+      <div className="absolute left-4 top-4 h-4 w-24 rounded-full bg-orange-500/80" />
+      <div className="absolute left-4 top-12 h-8 w-24 rounded-full bg-orange-500/14" />
       <div className="absolute left-4 top-20 h-28 w-24 rounded-2xl border border-slate-200 bg-white shadow-sm" />
       <div className="absolute left-[7.6rem] right-6 top-4 h-9 rounded-2xl border border-slate-200 bg-white/90 shadow-sm" />
       <div className="absolute left-[9.4rem] top-1/2 flex -translate-y-1/2 flex-col items-center gap-4">
-        <div className="rounded-2xl bg-indigo-600 px-4 py-3 text-center text-xs font-semibold text-white shadow-lg shadow-indigo-500/20">
-          Welcome to Mini Otio
+        <div className="rounded-2xl bg-orange-500 px-4 py-3 text-center text-xs font-semibold text-white shadow-lg shadow-orange-500/20">
+          What are you cooking?
         </div>
         <div className="w-68 rounded-[1.4rem] border border-slate-200 bg-white/95 px-5 py-5 text-center shadow-[0_16px_36px_rgba(15,23,42,0.08)]">
-          <div className="mx-auto mb-3 h-10 w-10 rounded-2xl bg-indigo-600/10" />
-          <p className="text-sm font-semibold text-indigo-600">Mini Otio</p>
+          <div className="mx-auto mb-3 h-10 w-10 rounded-2xl bg-orange-500/10" />
+          <p className="text-sm font-semibold text-orange-600">Recipe App</p>
           <p className="mt-2 text-[0.72rem] leading-5 text-slate-500">
-            A research assistant for fast answers, structured summaries, and
-            live web context.
+            Find delicious recipes, save favorites, and plan your next meal.
           </p>
         </div>
       </div>
@@ -124,6 +118,7 @@ const ProjectPreview = ({ project }) => {
 };
 
 const Project = () => {
+  const [selectedProject, setSelectedProject] = useState<(typeof projects)[number] | null>(null);
   const sectionRef = useRef(null);
   const headerRef = useRef(null);
   const cardsRef = useRef([]);
@@ -289,19 +284,25 @@ const Project = () => {
                   {project.description}
                 </p>
 
-                <Link
-                  href={project.previewHref}
+                <button
+                  type="button"
+                  onClick={() => setSelectedProject(project)}
                   data-preview-button
-                  className="mt-2 inline-flex w-fit items-center gap-2 text-sm font-semibold uppercase tracking-[0.22em] text-[#f7d9cf]"
+                  className="mt-2 inline-flex w-fit items-center gap-2 text-sm font-semibold uppercase tracking-[0.22em] text-[#f7d9cf] transition-colors hover:text-[#ffff00]"
                 >
-                  <span>Click to explore</span>
+                  <span>Explore More</span>
                   <span aria-hidden="true">→</span>
-                </Link>
+                </button>
               </div>
             </article>
           ))}
         </div>
       </div>
+
+      <DetailsModal
+        item={selectedProject}
+        onClose={() => setSelectedProject(null)}
+      />
     </section>
   );
 };
