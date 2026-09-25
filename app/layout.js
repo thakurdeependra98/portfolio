@@ -13,7 +13,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
-  title: "Thakur Deependra Singh - Portfolio",
+  title: "Deependra Singh - Portfolio",
   description: "Creative Software Developer"
 };
 
