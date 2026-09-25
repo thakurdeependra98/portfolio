@@ -67,7 +67,7 @@ const Service = () => {
         </Fade>
 
         {/* Services Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
           {services.map((service, index) => (
             <Fade key={service.id} delay={600 + index * 200} triggerOnce>
               <div className="bg-gray-900/50 border border-gray-800 rounded-2xl p-8 relative hover:bg-gray-900/70 transition-all duration-300 hover:border-gray-700">
@@ -105,14 +105,6 @@ const Service = () => {
                     ))}
                   </div>
                 </div>
-
-                {/* CTA Button */}
-                <button className="w-full bg-white text-black py-3 rounded-full font-medium hover:bg-gray-200 transition-colors duration-200 flex items-center justify-center gap-2">
-                  Discuss this service
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                    <path d="M7 17L17 7M17 7H7M17 7V17"/>
-                  </svg>
-                </button>
               </div>
             </Fade>
           ))}
